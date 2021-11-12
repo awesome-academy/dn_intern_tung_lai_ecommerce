@@ -3,31 +3,46 @@ en:
   languages:
     vi: "Vietnamese"
     en: "English"
+  labels:
+    category:
+      all: "All Categories"
+      cat: "Category"
+  home:
+    featured_product: "Featured Product"
+    filter:
+      all: "All"
+      food: "Food"
+      computer: "Computer"
+    recent: "Recent"
+    top_rated: "Top Rated"
   layouts:
     header:
       home: "Home"
+      shop: "Shop"
+      cart: "Shopping Cart"
+      checkout: "Checkout"
+      order: "Order"
+      contact: "Contact"
       login: "Login"
+      total: "total:"
+      site_email: "admin@tlshop.example.com"
+    hero:
+      search_btn_txt: "Search"
+      phone: "%{phone_number}"
+      search_place: "What do you need?"
+      support: "support 24/7"
     footer:
-      address: "Địa chỉ: %{address}"
-      phone: "Điện thoại: %{phone_number}"
+      useful_links: "Useful Links"
+      address: "Address: %{address}"
+      phone: "Phone: %{phone_number}"
       email: "Email: %{email}"
       about_us: "About Us"
-      about_our_shop: "About Our Shop"
-      secure_shopping: "Secure Shopping"
-      delivery_information: "Delivery Information"
-      privacy_policy: "Privacy Policy"
-      our_sitemap: "Our Sitemap"
-      who_we_are: "Who We Are"
-      our_services: "Our services"
-      projects: "Projects"
-      contact: "Contact"
-      innovation: "Innovation"
-      testimonials: "Testimonials"
       join_our_newsletter:
         heading: "Join our newsletter"
         para: "Subscribe to receive our latest updates via E-mail!"
       enter_your_mail: "your_email_address@gmail.com"
       subscribe: "Subscribe"
+
   activerecord:
     attributes:
       user:

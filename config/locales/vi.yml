@@ -3,26 +3,40 @@ vi:
   languages:
     vi: "Tiếng Việt"
     en: "Tiếng Anh"
+  labels:
+    category:
+      all: "Tất cả mục"
+      cat: "Danh mục"
+  home:
+    featured_product: "Sản phẩm nổi bật"
+    filter:
+      all: "Tất cả"
+      food: "Thực phẩm"
+      computer: "Máy tính"
+    recent: "Xem gần đây"
+    top_rated: "Đánh giá cao"
   layouts:
     header:
       home: "Trang chủ"
+      shop: "Mua hàng"
+      cart: "Giỏ hàng"
+      checkout: "Thanh toán"
+      order: "Đơn hàng"
+      contact: "Liên hệ"
       login: "Đăng nhập"
+      total: "tổng:"
+      site_email: "admin@tlshop.example.com"
+    hero:
+      search_btn_txt: "Tìm kiếm"
+      phone: "%{phone_number}"
+      search_place: "Bạn cần gì?"
+      support: "hỗ trợ 24/7"
     footer:
+      useful_links: "Thông tin khác"
       address: "Địa chỉ: %{address}"
       phone: "Điện thoại: %{phone_number}"
       email: "Email: %{email}"
       about_us: "Về chúng tôi"
-      about_our_shop: "Về TL Shop"
-      secure_shopping: "Mua hàng bảo mật"
-      delivery_information: "Thông tin giao hàng"
-      privacy_policy: "Chính sách bảo mật"
-      our_sitemap: "Sitemap"
-      who_we_are: "Who We Are"
-      our_services: "Các dịch vụ"
-      projects: "Các dự án"
-      contact: "Liên hệ"
-      innovation: "Đổi mới"
-      testimonials: "Chứng nhận"
       join_our_newsletter:
         heading: "Tham gia nhận thông báo"
         para: "Đăng ký để nhận thông báo mới nhất qua E-mail!"
