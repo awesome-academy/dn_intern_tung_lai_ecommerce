@@ -1,19 +1,32 @@
 module CategoriesHelper
-  # retrieve catetories in tree format
-  def categories_tree
-    cat_tree = {}
-    # order by parent_id??????
-    Category.all.each do |cat|
-      if cat[:parent_id].nil?
-        cat_tree[cat[:title]] = []
-      else
-        parent_cat = Category.find_by_id(cat[:parent_id])
-        if parent_cat
-          cat_tree[parent_cat[:title]] << cat[:title]
-        end
-      end
-    end
+  def parent_categories
+    Category.where parent_id: nil
+  end
 
-    return cat_tree
+  def categories_carousel max = 10
+    Category.limit(max)
+  end
+
+  def featured_products max = 12
+    Product.order(rating: :desc).limit(max)
+  end
+
+  def to_filters_hash products
+    products.each_with_object({}) do |e, h|
+      cat = e.category
+      # h[cat.id] = cat.title
+      h[cat.parent.id] = cat.parent.title unless cat.parent.nil?
+    end
+  end
+
+  def snake_join strings
+    return "" if strings.empty?
+
+    # strings[0] = Strings::Case.snakecase(strings[0])
+    strings.reduce(""){|a, e| a + " #{to_snakecase e}"}
+  end
+
+  def to_snakecase string
+    Strings::Case.snakecase string
   end
 end

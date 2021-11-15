@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-git_source(:github){|repo| "https://github.com/#{repo}.git"}
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.0"
 
@@ -14,6 +14,8 @@ gem "webpacker", "~> 5.0"
 gem "rails-i18n"
 gem "bcrypt"
 gem "config"
+gem "breadcrumbs_on_rails"
+gem "strings-case"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

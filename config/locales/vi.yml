@@ -29,7 +29,7 @@ vi:
     hero:
       search_btn_txt: "Tìm kiếm"
       phone: "%{phone_number}"
-      search_place: "Bạn cần gì?"
+      what_do_you_need?: "Bạn cần mua gì?"
       support: "hỗ trợ 24/7"
     footer:
       useful_links: "Thông tin khác"

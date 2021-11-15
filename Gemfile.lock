@@ -67,6 +67,8 @@ GEM
     bindex (0.8.1)
     bootsnap (1.9.1)
       msgpack (~> 1.0)
+    breadcrumbs_on_rails (4.1.0)
+      railties (>= 5.0)
     builder (3.2.4)
     byebug (11.1.3)
     capybara (3.36.0)
@@ -260,6 +262,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    strings-case (0.3.0)
     thor (1.1.0)
     tilt (2.0.10)
     turbolinks (5.2.1)
@@ -295,6 +298,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   bootsnap (>= 1.4.4)
+  breadcrumbs_on_rails
   byebug
   capybara (>= 3.26)
   config
@@ -315,6 +319,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   spring
+  strings-case
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)

@@ -29,7 +29,7 @@ en:
     hero:
       search_btn_txt: "Search"
       phone: "%{phone_number}"
-      search_place: "What do you need?"
+      what_do_you_need?: "What do you need?"
       support: "support 24/7"
     footer:
       useful_links: "Useful Links"

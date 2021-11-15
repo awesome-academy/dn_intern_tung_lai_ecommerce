@@ -9,14 +9,25 @@
             <span><%= t "labels.category.cat" %></span>
           </div>
           <ul>
-            <!-- multi-levels category UI later -->
-            <% categories_tree.each do |cat| %>
-              <li><a href="#"><%= cat[0] %></a></li>
-              <% cat[1].each do |subcat| %>
-                <li><a href="#"> -- <%= subcat %></a></li>
-              <% end %>
+            <% parent_categories.each do |category| %>
+              <li class="toggle-down-wrapper">
+                <div>
+                  <h4 class="d-inline-block"><%= link_to category.title, "#" %></h4>
+                  <% if category.children.length > 0%>
+                    <span class="fas fa-angle-down toggle-down-main clickable"></span>
+                  <% end %>
+                </div>
+                <% if category.children.length > 0 %>
+                  <ul class="toggle-down-content border-success">
+                    <% category.children.each do |subcategory| %>
+                      <li>
+                        <h5><%= link_to subcategory.title, "#" %></h5>
+                      </li>
+                    <% end %>
+                  </ul>
+                <% end %>
+              </li>
             <% end %>
-            <!-- multi-levels category UI later -->
           </ul>
         </div>
       </div>
@@ -28,7 +39,7 @@
                 <%= t "labels.category.all" %>
                 <span class="arrow_carrot-down"></span>
               </div>
-              <input type="text" placeholder="What do you need?" %> />
+              <input type="text" placeholder="<%= t ".what_do_you_need?" %>" />
               <button type="submit" class="site-btn"><%= t ".search_btn_txt" %></button>
             </form>
           </div>
@@ -42,7 +53,7 @@
             </div>
           </div>
         </div>
-        <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
+        <div class="hero__item set-bg" data-setbg="/img/hero/banner.jpg">
           <!-- <div class="hero__text">
             <span>FRUIT FRESH</span>
             <h2>Vegetable <br />

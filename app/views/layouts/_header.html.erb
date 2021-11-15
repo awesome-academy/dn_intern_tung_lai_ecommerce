@@ -7,26 +7,28 @@
   <div class="humberger__menu__cart">
     <ul>
       <li>
-        <%= link_to cart_path do %>
+        <%= link_to "#" do %>
           <i class="fa fa-shopping-bag"></i> <span><%= cart_count %>
         <% end %>
       </li>
     </ul>
-    <div class="header__cart__price"><%= t ".total" %> <span><%= subtotal %></span></div>
+    <div class="header__cart__price"><%= t ".total" %> <span><%= print_price subtotal %></span><span class="currency-unit">đ</span></div>
   </div>
   <div class="humberger__menu__widget">
-    <div class="header__top__right__language">
-      <div class="flag__wrapper"><img src=<%= "/img/language-#{I18n.locale}.png" %> alt="" /></div>
-      <div><%= t "languages.#{I18n.locale}" %></div>
-      <span class="arrow_carrot-down"></span>
-      <ul>
-        <% I18n.available_locales.each do |lang| %>
-          <li><%= link_to t("languages.#{lang}"), (request.path+"?locale=#{lang}") %></li>
-        <% end %>
-      </ul>
-    </div>
-    <div class="header__top__right__auth">
-      <a href="#"><i class="fa fa-user"></i> <%= t ".login" %></a>
+    <div class="humberger__menu__widget">
+      <div class="header__top__right__language">
+        <div class="flag__wrapper"><img src=<%= "/img/language-#{I18n.locale}.png" %> alt="" /></div>
+        <div><%= t "languages.#{I18n.locale}" %></div>
+        <span class="arrow_carrot-down"></span>
+        <ul>
+          <% I18n.available_locales.each do |lang| %>
+            <li><%= link_to t("languages.#{lang}"), (request.path+"?locale=#{lang}") %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="header__top__right__auth">
+        <a href="#"><i class="fa fa-user"></i> <%= t ".login" %></a>
+      </div>
     </div>
   </div>
   <nav class="humberger__menu__nav mobile-menu">
@@ -36,7 +38,7 @@
       <li>
         <a><%= t ".order" %></a>
         <ul class="header__menu__dropdown">
-          <li><%= link_to t(".cart"), cart_path %></li>
+          <li><%= link_to t(".cart"), "#" %></li>
           <li><%= link_to t(".checkout"), "#" %></li>
         </ul>
       </li>
@@ -89,7 +91,9 @@
     <div class="row">
       <div class="col-lg-3">
         <div class="header__logo">
-          <a href="./index.html"><img src="/img/logo.png" alt="" /></a>
+          <%= link_to root_path do %>
+            <img src="/img/logo.png" alt="" />
+          <% end %>
         </div>
       </div>
       <div class="col-lg-6">
@@ -100,7 +104,7 @@
             <li>
               <a><%= t ".order" %></a>
               <ul class="header__menu__dropdown">
-                <li><%= link_to t(".cart"), cart_path %></li>
+                <li><%= link_to t(".cart"), "#{}" %></li>
                 <li><%= link_to t(".checkout"), "#" %></li>
               </ul>
             </li>
@@ -111,14 +115,14 @@
         <div class="header__cart">
           <ul>
             <li>
-              <%= link_to cart_path do %>
+              <%= link_to "#" do %>
                 <i class="fa fa-shopping-bag"></i> <span><%= cart_count %>
               <% end %>
             </li>
           </ul>
-          <div class="header__cart__price"><%= t ".total" %> <span><%= subtotal %></span></div>
-        </div>
+        <div class="header__cart__price"><%= t ".total" %> <span><%= print_price subtotal %></span><span class="currency-unit">đ</span></div>
       </div>
+    </div>
     </div>
     <div class="humberger__open">
       <i class="fa fa-bars"></i>

@@ -17,6 +17,7 @@ import "organi/jquery-ui.min.js";
 import "organi/mixitup.min.js";
 import "organi/owl.carousel.min.js";
 import "organi/main.js";
+import "packs/custom.js";
 
 Rails.start();
 // Turbolinks.start();
