@@ -11,12 +11,6 @@
   font-family: "FontAwesome";
   padding: 3px;
 }
-.toggle-down-wrapper {
-  .toggle-down-content {
-    border: 0;
-    border-left: 3px solid;
-  }
-}
 .latest-product__item__text {
   span {
     display: initial;
@@ -61,6 +55,10 @@
   ul {
     max-height: 461px;
     overflow-y: auto;
+    ul {
+      border: 0;
+      border-left: 3px solid;
+    }
   }
 }
 
