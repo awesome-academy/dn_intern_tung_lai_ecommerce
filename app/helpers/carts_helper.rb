@@ -51,7 +51,36 @@ module CartsHelper
     products_contents
   end
 
+  # increase item quantity from cart by 1
+  def cart_handle_add
+    return false unless item_exists
+
+    possible_qty = session[:cart][params[:id]] || 0
+    possible_qty += 1
+    return :exceeded if qty_exceeds_range params[:id], possible_qty
+
+    session[:cart][params[:id]] = possible_qty
+  end
+
+  # subtract item quantity from cart by 1
+  def cart_handle_remove
+    return false unless session[:cart][params[:id]]
+
+    return :pending_remove if session[:cart][params[:id]] == 1
+
+    session[:cart][params[:id]] -= 1
+  end
+
+  # remove item from cart
+  def remove_item
+    session[:cart].delete(params[:id]) if session[:cart][params[:id]]
+  end
+
   private
+  def item_exists
+    Product.exists?(params[:id])
+  end
+
   def item_attr attr, id
     Product.pluck_attr id, attr
   end
@@ -63,5 +92,13 @@ module CartsHelper
   # current_qty cannot be larger than inventory
   def available_qty qty, inventory
     qty > inventory ? inventory : qty
+  end
+
+  # check if current_qty is larger than inventory
+  def qty_exceeds_range id, qty
+    inventory = item_attr :inventory, id
+    return true unless inventory
+
+    qty > inventory[0]
   end
 end

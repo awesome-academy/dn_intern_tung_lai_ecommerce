@@ -2,6 +2,7 @@
 
 <!-- Shoping Cart Section Begin -->
 <section class="shoping-cart spad">
+	<div class="pending__popup"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
@@ -18,7 +19,7 @@
 							</tr>
 						</thead>
 						<tbody class="cart__items">
-							<%= render "layouts/cart_items" %>
+							<%= render "layouts/cart/cart_items" %>
 						</tbody>
 					</table>
 				</div>
@@ -28,9 +29,9 @@
 			<div class="col-lg-12">
 				<div class="shoping__cart__btns">
 					<%= link_to t("cart.btn.continue_shopping"), "#", class: "primary-btn cart-btn" %>
-					<%= link_to "#", class: "primary-btn cart-btn cart-btn-right" do %>
-  					<span class="icon_loading"> </span>
-  					<%= t "cart.btn.update_cart" %>
+					<%= link_to carts_path, class: "primary-btn cart-btn cart-btn-right" do %>
+						<span class="icon_loading"> </span>
+						<%= t "cart.btn.update_cart" %>
 					<% end %>
 				</div>
 			</div>

@@ -20,6 +20,12 @@ en:
     qty: "Quantity"
     total: "Total"
     cart_total: "Cart Total"
+    modal:
+      header: "Notification"
+      exceeded: "The stock limit has been reached!"
+      pending_remove: "Are you sure you want to remove this product from your cart?"
+      btn_close: "Close"
+      btn_confirm: "OK"
     btn:
       continue_shopping: "CONTINUE SHOPPING"
       update_cart: "UPDATE CART"

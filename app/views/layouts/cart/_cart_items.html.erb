@@ -1,0 +1,32 @@
+<% if cart_contents.present? %>
+  <% cart_contents.each do |item| %>
+  <tr>
+    <td class="shoping__cart__item">
+      <img src="/img/cart/cart-1.jpg" alt="">
+      <h5><%= item[1][:name] %></h5>
+    </td>
+    <td class="shoping__cart__price">
+      <%= translate_price item[1][:price] %>
+    </td>
+    <td class="shoping__cart__price">
+      <%= item[1][:inventory] %>
+    </td>
+    <td class="shoping__cart__quantity">
+      <div class="quantity">
+        <div class="pro-qty">
+          <span class="dec qtybtn">
+            <%= link_to "-", cart_path(id: item[1][:id]), method: :patch, remote: true %>
+          </span>
+          <input type="text" readonly="readonly" value=<%= item[0][1] %>>
+          <span class="inc qtybtn">
+            <%= link_to "+", carts_path(id: item[1][:id]), method: :post, remote: true %>
+          </span>
+        </div>
+      </div>
+    </td>
+    <td class="shoping__cart__total">
+      <%= translate_price item[0][1] * item[1][:price] %>
+    </td>
+  </tr>
+  <% end %>
+<% end %>

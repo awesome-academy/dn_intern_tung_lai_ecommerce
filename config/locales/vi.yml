@@ -20,6 +20,12 @@ vi:
     qty: "Số lượng"
     total: "Tổng"
     cart_total: "Giá trị giỏ hàng"
+    modal:
+      header: "Thông báo"
+      exceeded: "Đã đạt đến giới hạn trong kho!"
+      pending_remove: "Bạn có chắc chắn muốn xóa sản phẩm này ra khỏi giỏ hàng?"
+      btn_close: "Đóng"
+      btn_confirm: "Đồng ý"
     btn:
       continue_shopping: "MUA THÊM"
       update_cart: "CẬP NHẬT GIỎ HÀNG"

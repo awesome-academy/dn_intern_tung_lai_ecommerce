@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github){|repo| "https://github.com/#{repo}.git"}
 
 ruby "2.7.0"
 
@@ -38,7 +38,6 @@ group :development do
   gem "pry-rails"
   gem "rack-mini-profiler", "~> 2.0"
   gem "spring"
-  gem "pry-rails"
   gem "web-console", ">= 4.1.0"
 end
 
