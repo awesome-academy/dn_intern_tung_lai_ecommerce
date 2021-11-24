@@ -1,5 +1,7 @@
 class CartsController < ApplicationController
-  def index; end
+  def index
+    redirect_to login_path unless is_logged_in?
+  end
 
   def create
     @result = cart_handle_add

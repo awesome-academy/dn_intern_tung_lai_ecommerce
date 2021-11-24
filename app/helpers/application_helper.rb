@@ -24,10 +24,6 @@ module ApplicationHelper
     elms.join("/")
   end
 
-  def current_user
-    @current_user ||= User.find_by id: session[:user_id]
-  end
-
   def default_url_options
     {locale: I18n.locale}
   end

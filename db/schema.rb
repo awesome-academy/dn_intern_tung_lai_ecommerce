@@ -12,15 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2021_11_09_030517) do
 
-  create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "categories", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "parent_id"
     t.string "title", null: false
-    t.string "description"
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "order_items", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+  create_table "order_items", charset: "utf8mb4", force: :cascade do |t|
     t.integer "quantity", null: false
     t.decimal "current_price", precision: 10, default: "0"
     t.bigint "order_id", null: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2021_11_09_030517) do
     t.index ["product_id"], name: "index_order_items_on_product_id"
   end
 
-  create_table "orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "orders", charset: "utf8mb4", force: :cascade do |t|
     t.decimal "total_price", precision: 10, default: "0"
     t.integer "status", default: 0
     t.bigint "user_id", null: false
@@ -40,21 +40,20 @@ ActiveRecord::Schema.define(version: 2021_11_09_030517) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-  create_table "products", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "products", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.string "description"
-    t.decimal "price", precision: 10
-    t.integer "status", default: 0
+    t.decimal "price", precision: 10, null: false
     t.float "rating", default: 0.0
     t.integer "inventory", null: false
     t.string "unit", null: false
-    t.bigint "category_id"
+    t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false

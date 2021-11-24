@@ -1,112 +1,115 @@
 <!-- Humberger Begin -->
 <div class="humberger__menu__overlay"></div>
 <div class="humberger__menu__wrapper">
-  <div class="humberger__menu__logo">
-    <%= link_to root_path do %>
-      <img src="/img/logo.png" alt="" />
-    <% end %>
-  </div>
-  <div class="humberger__menu__widget">
-    <div class="header__top__right__language">
-      <div class="flag__wrapper"><img src=<%= "/img/language-#{I18n.locale}.png" %> alt="" /></div>
-      <div><%= Settings.languages[I18n.locale] %></div>
-      <span class="arrow_carrot-down"></span>
-      <ul>
-        <% I18n.available_locales.each do |lang| %>
-          <li><a href="<%= change_path_locale request.path, lang %>"><%= Settings.languages[lang] %></a></li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-  <div class="header__top__right__auth">
-    <% if current_user.present? %>
-      <%= link_to "#" do %>
-        <i class="fa fa-user"></i><%= current_user.first_name %>, <%= link_to "Đăng xuất", logout_path %>
+	<div class="humberger__menu__logo">
+		<%= link_to root_path do %>
+		<img src="/img/logo.png" alt="" />
+		<% end %>
+	</div>
+	<div class="humberger__menu__widget">
+		<div class="header__top__right__language">
+			<div class="flag__wrapper"><img src=<%= "/img/language-#{I18n.locale}.png" %> alt="" /></div>
+			<div><%= Settings.languages[I18n.locale] %></div>
+			<span class="arrow_carrot-down"></span>
+			<ul>
+				<% I18n.available_locales.each do |lang| %>
+				<li><a href="<%= change_path_locale request.path, lang %>"><%= Settings.languages[lang] %></a></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+	<div class="header__top__right__auth">
+		<% if current_user.present? %>
+		<%= link_to "#" do %>
+		<i class="fa fa-user"></i><%= current_user.first_name %>, <%= link_to "Đăng xuất", logout_path %>
+		<% end %>
+		<% else %>
+		<%= link_to login_path do %>
+		<i class="fa fa-user"></i><%= t ".login" %>
+		<% end %>
+		<% end %>
+	</div>
+	<nav class="humberger__menu__nav mobile-menu">
+		<ul>
+			<li class="active"><%= link_to t(".home"), root_path %></a></li>
+			<li><%= link_to t(".shop"), "#" %></li>
+      <% if is_logged_in? %>
+        <li>
+          <a><%= t ".order" %></a>
+          <ul class="header__menu__dropdown">
+            <li><%= link_to t(".cart"), carts_path %></li>
+            <li><%= link_to t(".checkout"), "#" %></li>
+          </ul>
+        </li>
       <% end %>
-    <% else %>
-      <%= link_to login_path do %>
-        <i class="fa fa-user"></i><%= t ".login" %>
-      <% end %>
-    <% end %>
-  </div>
-  <nav class="humberger__menu__nav mobile-menu">
-    <ul>
-      <li class="active"><%= link_to t(".home"), root_path %></a></li>
-      <li><%= link_to t(".shop"), "#" %></li>
-      <li>
-        <a><%= t ".order" %></a>
-        <ul class="header__menu__dropdown">
-          <li><%= link_to t(".cart"), carts_path %></li>
-          <li><%= link_to t(".checkout"), "#" %></li>
-        </ul>
-      </li>
-      <li><%= link_to t(".contact"), "#" %></li>
-    </ul>
-  </nav>
-  <div id="mobile-menu-wrap"></div>
-  <div class="humberger__menu__contact">
-    <ul>
-      <li><i class="fa fa-envelope"></i> <%= t ".site_email" %></li>
-    </ul>
-  </div>
+			<li><%= link_to t(".contact"), "#" %></li>
+		</ul>
+	</nav>
+	<div id="mobile-menu-wrap"></div>
+	<div class="humberger__menu__contact">
+		<ul>
+			<li><i class="fa fa-envelope"></i> <%= t ".site_email" %></li>
+		</ul>
+	</div>
 </div>
 <!-- Humberger End -->
 
 <!-- Header Section Begin -->
 <header class="header">
-  <div class="header__top">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 col-md-6">
-          <div class="header__top__left">
-            <ul>
-              <li><i class="fa fa-envelope"></i> <%= t ".site_email", email: "admin@tlshop.example.com" %></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6">
-          <div class="header__top__right">
+	<div class="header__top">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-6">
+					<div class="header__top__left">
+						<ul>
+							<li><i class="fa fa-envelope"></i> <%= t ".site_email", email: "admin@tlshop.example.com" %></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6">
+					<div class="header__top__right">
 
-            <div class="header__top__right__language">
-              <div class="flag__wrapper"><img src=<%= "/img/language-#{I18n.locale}.png" %> alt="" /></div>
-          <div><%= Settings.languages[I18n.locale] %></div>
-          <span class="arrow_carrot-down"></span>
-          <ul>
-            <% I18n.available_locales.each do |lang| %>
-              <li><a href="<%= change_path_locale request.path, lang %>"><%= Settings.languages[lang] %></a></li>
-                <% end %>
-              </ul>
-            </div>
-            <div class="header__top__right__auth">
-              <% if current_user.present? %>
-                <%= link_to "#" do %>
-                  <i class="fa fa-user"></i><%= current_user.first_name %>, <%= link_to "Đăng xuất", logout_path %>
-                <% end %>
-              <% else %>
-                <%= link_to login_path do %>
-                  <i class="fa fa-user"></i><%= t ".login" %>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-3">
-        <div class="header__logo">
-          <%= link_to root_path do %>
-            <img src="/img/logo.png" alt="" />
-              <% end %>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <nav class="header__menu">
-              <ul>
-                <li class="active"><%= link_to t(".home"), root_path %></a></li>
-              <li><%= link_to t(".shop"), "#" %></li>
+						<div class="header__top__right__language">
+							<div class="flag__wrapper"><img src=<%= "/img/language-#{I18n.locale}.png" %> alt="" /></div>
+							<div><%= Settings.languages[I18n.locale] %></div>
+							<span class="arrow_carrot-down"></span>
+							<ul>
+								<% I18n.available_locales.each do |lang| %>
+								<li><a href="<%= change_path_locale request.path, lang %>"><%= Settings.languages[lang] %></a></li>
+								<% end %>
+							</ul>
+						</div>
+						<div class="header__top__right__auth">
+							<% if current_user.present? %>
+    							<%= link_to "#" do %>
+    							<i class="fa fa-user"></i><%= current_user.first_name %>, <%= link_to "Đăng xuất", logout_path %>
+    							<% end %>
+  							<% else %>
+    							<%= link_to login_path do %>
+    							<i class="fa fa-user"></i><%= t ".login" %>
+  							<% end %>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3">
+				<div class="header__logo">
+					<%= link_to root_path do %>
+					<img src="/img/logo.png" alt="" />
+					<% end %>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<nav class="header__menu">
+					<ul>
+						<li class="active"><%= link_to t(".home"), root_path %></a></li>
+						<li><%= link_to t(".shop"), "#" %></li>
+						<% if is_logged_in? %>
               <li>
                 <a><%= t ".order" %></a>
                 <ul class="header__menu__dropdown">
@@ -114,26 +117,11 @@
                   <li><%= link_to t(".checkout"), "#" %></li>
                 </ul>
               </li>
-              <li><%= link_to t(".contact"), "#" %></li>
-            </nav>
-          </div>
-          <div class="col-lg-3">
-            <div class="header__cart">
-              <ul>
-                <li>
-                  <%= link_to carts_path do %>
-                    <i class="fa fa-shopping-bag"></i>
-                    <span id="shopping__bag__count"><%= cart_count %></span>
-                  <% end %>
-                </li>
-              </ul>
-              <div class="header__cart__price">
-                <%= t ".total" %>
-                <span><%= translate_price subtotal %></span>
-              </div>
-            </ul>
-          </div>
-        </div>
+            <% end %>
+						<li><%= link_to t(".contact"), "#" %></li>
+					</nav>
+				</div>
+				<%= render "layouts/cart/cart_summary" if is_logged_in? %>
       </div>
       <div class="humberger__open">
         <i class="fa fa-bars"></i>

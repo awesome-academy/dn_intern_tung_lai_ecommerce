@@ -10,6 +10,11 @@ module CartsHelper
     session[:cart][4.to_s] = 3
   end
 
+  # wipe out all data in cart when logged out
+  def wipe_cart
+    session[:cart] = {}
+  end
+
   # number of available items in cart
   def cart_count
     return 0 if session[:cart].blank?
