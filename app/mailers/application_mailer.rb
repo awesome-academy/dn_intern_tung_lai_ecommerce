@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: Settings.mailer.from
+  default from: ENV["GMAIL_USERNAME"]
   layout "mailer"
 end

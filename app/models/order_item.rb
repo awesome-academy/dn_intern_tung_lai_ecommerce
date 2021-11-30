@@ -8,16 +8,6 @@ class OrderItem < ApplicationRecord
   belongs_to :order
   belongs_to :product
 
-  class << self
-    def datetime_attributes
-      %w(created_at updated_at)
-    end
-
-    def currency_attributes
-      %w(current_price)
-    end
-  end
-
   private
   def update_product_inventory
     product.inventory -= quantity
