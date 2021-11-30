@@ -151,6 +151,11 @@ vi:
       summary_html: "Đơn hàng của bạn đã thay đổi trạng thái từ <span class=\"text-italic\">%{prev}</span> sang <span class=\"text-emphasis\">%{current}</span>"
       details_below: "Sau đây là thông tin chi tiết đơn hàng này"
       happy_shopping!: "Chúc bạn mua sắm vui vẻ!"
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      required: "không thể để trắng"
+      too_long: "quá dài (tối đa %{count} ký tự)"
   activerecord:
     models:
       category: "Loại sản phẩm"

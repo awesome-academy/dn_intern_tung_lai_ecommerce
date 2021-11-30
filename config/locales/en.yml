@@ -143,6 +143,13 @@ en:
       summary_html: "Your order status has changed from <span class=\"text-italic\">%{prev}</span> to <span class=\"text-emphasis\">%{current}</span>"
       details_below: "Below is the order details"
       happy_shopping!: "Happy shopping!"
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      required: "can't be blank"
+      too_long:
+        one: "is too long (maximum is 1 character)"
+        other: "is too long (maximum is %{count} characters)"
   activerecord:
     models:
       category: "Category"
