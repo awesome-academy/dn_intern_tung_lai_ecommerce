@@ -27,21 +27,4 @@ class OrderItem < ApplicationRecord
   def set_current_price
     self.current_price = product.price
   end
-  class << self
-    def hidden_attributes
-      %w(id order_id)
-    end
-
-    def shown_attributes
-      attribute_names.reject{|name| hidden_attributes.include? name}
-    end
-
-    def datetime_attributes
-      %w(created_at updated_at)
-    end
-
-    def currency_attributes
-      %w(current_price)
-    end
-  end
 end

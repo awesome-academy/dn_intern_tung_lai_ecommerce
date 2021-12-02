@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-git_source(:github){|repo| "https://github.com/#{repo}.git"}
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.0"
 
@@ -23,6 +23,8 @@ group :development, :test do
 
   # rspec
   gem "rspec-rails", "~> 4.0.1"
+  gem "simplecov-rcov"
+  gem "simplecov"
 
   # rubocop
   gem "rubocop", "~> 0.74.0", require: false
@@ -45,9 +47,12 @@ end
 group :test do
   gem "capybara", ">= 3.26"
   gem "selenium-webdriver"
+  gem "database_cleaner-active_record"
   gem "webdrivers"
 end
 
 group :production do
   gem "pg"
 end
+
+gem "figaro", "~> 1.2"
