@@ -119,11 +119,12 @@ class Seeder
 
     def seed_order_items order
       offset = rand(User.where(role: :user).count)
-      order.order_items.create product: Product.offset(offset).first,
+      item = order.order_items.create product: Product.offset(offset).first,
                               quantity: Faker::Number.between(
                                 from: Settings.seeder.digit.quantity.min,
                                 to: Settings.seeder.digit.quantity.max
                               )
+      order.total_price += item.current_price
     end
 
     def seed_orders_order_items
@@ -133,6 +134,7 @@ class Seeder
           order_items_count.times do
             seed_order_items order
           end
+          order.save
         end
       end
     end
@@ -155,6 +157,7 @@ class Seeder
       order_items_count.times do
         seed_order_items order
       end
+      order.save
     end
 
     def seed_mailing

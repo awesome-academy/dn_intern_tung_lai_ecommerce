@@ -72,7 +72,6 @@ yarn-debug.log*
 test
 config/credentials.yml.enc
 config/database.yml
-spec
 
 # Ingore framgia-ci results
 .framgia-ci-reports/
@@ -81,3 +80,4 @@ spec
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
+config/application.yml

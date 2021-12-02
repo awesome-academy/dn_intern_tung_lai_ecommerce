@@ -40,6 +40,18 @@ seeder:
       min: 1
       max: 5
   unit: "Piece"
+  password: "12345678"
+  admin:
+    email: "nguyen.nhat.tung@sun-asterisk.com"
+    first_name: "Tùng"
+    last_name: "Nguyễn Nhật"
+    telephone: "0935 805 404"
+    address: "K81/01 Ngô Thì Nhậm"
+    birthday: "2000-03-23"
+    gender: "male"
+    role: "admin"
+    password: "12345678"
+    password_confirmation: "12345678"
 languages:
   vi: "Tiếng Việt"
   en: "English"
@@ -47,3 +59,5 @@ rates_to:
   usd: 22653.5
 digit:
   zero: 0
+mailer:
+  from: "noreply@tlshop.com"
