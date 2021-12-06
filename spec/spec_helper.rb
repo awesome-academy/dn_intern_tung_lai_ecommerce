@@ -1,6 +1,8 @@
 require "simplecov"
 require "simplecov-rcov"
 require "faker"
+require "pry-rails"
+require "pry-nav"
 
 class SimpleCov::Formatter::MergedFormatter
   def format(result)
