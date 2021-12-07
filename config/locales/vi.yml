@@ -124,10 +124,6 @@ vi:
       previous: "&lsaquo;"
       next: "&rsaquo;"
       truncate: "&hellip;"
-  errors:
-    messages:
-      required: "không thể để trắng"
-      confirmation: "không khớp với %{attribute}"
   sessions:
     new:
       login: "Đăng nhập"
@@ -156,6 +152,9 @@ vi:
     messages:
       required: "không thể để trắng"
       too_long: "quá dài (tối đa %{count} ký tự)"
+      not_a_number: "không phải là số"
+      not_an_integer: "phải là một số nguyên"
+      greater_than_or_equal_to: "phải lớn hơn hoặc bằng %{count}"
   activerecord:
     models:
       category: "Loại sản phẩm"
