@@ -74,8 +74,8 @@ RSpec.describe Product, type: :model do
   end
 
   describe "scopes" do
-    context "#featured_products" do
-      it "order by rating desc" do
+    describe "#featured_products" do
+      it "should order by rating desc" do
         product_1 = FactoryBot.create(:product, rating: 1.5)
         product_2 = FactoryBot.create(:product, rating: 5)
         featured_products = Product.featured_products 2
@@ -83,23 +83,55 @@ RSpec.describe Product, type: :model do
       end
     end
 
-    context "#search_by_range" do
-      it "should filter product in range" do
-        range = {min: 50000, max: 500000}
-        in_range = [FactoryBot.create(:product, price: 100000),
-                    FactoryBot.create(:product, price: 499999)]
-        filtered_by_range = Product.search_by_range(:price, range)
-        expect(filtered_by_range).to eq in_range
+    describe "#search_by_range" do
+      let(:range) do
+        {min: 50000, max: 500000}
+      end
+
+      context "in range" do
+        it "should filter product in range" do
+          in_range = [FactoryBot.create(:product, price: 100000),
+                      FactoryBot.create(:product, price: 499999)]
+          filtered_by_range = Product.search_by_range(:price, range)
+          expect(filtered_by_range).to eq in_range
+        end
+      end
+
+      context "out range" do
+        it "should not filter product out range" do
+          out_range = [FactoryBot.create(:product, price: 49999),
+                      FactoryBot.create(:product, price: 500000)]
+          filtered_by_range = Product.search_by_range(:price, range)
+          expect(filtered_by_range).not_to eq out_range
+        end
       end
     end
 
-    context "#search_by_name" do
-      it "should filter product contains keyword (case-insensitively)" do
-        products = [FactoryBot.create(:product, name: "COM CoMpUtEr"),
-                    FactoryBot.create(:product, name: "Super Computer")]
-        keyword = "ComPuTER"
-        filtered_by_name = Product.search_by_name(keyword)
-        expect(filtered_by_name).to eq products
+    describe "#search_by_name" do
+      before(:all) do
+        @products = [FactoryBot.create(:product, name: "COM CoMpUtEr"),
+                     FactoryBot.create(:product, name: "Super Computer")]
+      end
+
+      context "keyword is not specified" do
+        it "should return all products" do
+          filtered_by_name = Product.search_by_name(nil)
+          expect(filtered_by_name).to eq @products
+        end
+      end
+
+      context "keyword is present" do
+        it "should filter products containing the keyword (case-insensitive)" do
+          keyword = "ComPuTER"
+          filtered_by_name = Product.search_by_name(keyword)
+          expect(filtered_by_name).to eq @products
+        end
+
+        it "should not filter products not containing the keyword" do
+          keyword = "laptop"
+          filtered_by_name = Product.search_by_name(keyword)
+          expect(filtered_by_name).not_to eq @products
+        end
       end
     end
 
@@ -117,18 +149,18 @@ RSpec.describe Product, type: :model do
     let(:parent_category) {FactoryBot.create(:category)}
     let(:child_category) {FactoryBot.create(:category, parent_id: parent_category.id)}
     let(:product) {FactoryBot.create(:product, category: child_category)}
-    context "#parent_category" do
+
+    describe "#parent_category" do
       it "should return parent category" do
         expect(product.parent_category).to eq product.category.parent
       end
     end
 
-    context "#has_parent_category?" do
+    describe "#has_parent_category?" do
       it "should return parent category" do
         expect(product.has_parent_category?).to eq true
       end
     end
-
   end
 end
 
