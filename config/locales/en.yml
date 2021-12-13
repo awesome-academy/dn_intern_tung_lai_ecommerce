@@ -114,7 +114,18 @@ en:
   logged_out: "Successfully logged out"
   admins_not_allowed: "Sorry but admins are not allowed"
   product_not_found: "Product not found"
-
+  form_fields:
+    email: "Email address"
+    first_name: "First Name"
+    last_name: "Last Name"
+    password: "Password"
+    password_confirmation: "Confirmation"
+    btn_sign_in: "Sign in now!"
+  users:
+    registrations:
+      new:
+        already_signed_up?: "Already have an account?"
+        btn_sign_up: "Sign up"
   products:
     index:
       showing_html: "Showing <span>%{count} / %{total}</span> found products"

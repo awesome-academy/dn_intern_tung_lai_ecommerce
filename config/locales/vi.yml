@@ -136,7 +136,18 @@ vi:
   logged_out: "Đăng xuất thành công"
   admins_not_allowed: "Xin lỗi bạn, người quản trị không thể truy cập tính năng này"
   product_not_found: "Không tìm thấy sản phẩm"
-
+  form_fields:
+    email: "Địa chỉ email"
+    first_name: "Tên"
+    last_name: "Họ"
+    password: "Mật khẩu"
+    password_confirmation: "Xác nhận mật khẩu"
+    btn_sign_in: "Đăng nhập ngay!"
+  users:
+    registrations:
+      new:
+        already_signed_up?: "Đã có tài khoản?"
+        btn_sign_up: "Đăng ký"
   attributes:
     created_at: "Ngày tạo"
     updated_at: "Ngày cập nhật cuối"
