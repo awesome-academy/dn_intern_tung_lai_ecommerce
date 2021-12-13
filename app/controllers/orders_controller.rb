@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
 
   def please_login
     flash[:warning] = t "cart.please_login"
-    redirect_to login_path
+    redirect_to new_user_session_path
   end
 
   def please_buy_more

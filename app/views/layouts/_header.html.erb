@@ -20,7 +20,7 @@
         <i class="fa fa-user"></i><%= current_user.first_name %>, <%= link_to t(".logout"), logout_path %>
       <% end %>
     <% else %>
-      <%= link_to login_path do %>
+      <%= link_to "#" do %>
         <i class="fa fa-user"></i><%= t ".login" %>
       <% end %>
     <% end %>
@@ -73,7 +73,7 @@
                   <i class="fa fa-user"></i><%= current_user.first_name %>, <%= link_to t(".logout"), logout_path %>
                 <% end %>
               <% else %>
-                <%= link_to login_path do %>
+                <%= link_to "#" do %>
                   <i class="fa fa-user"></i><%= t ".login" %>
                 <% end %>
               <% end %>
