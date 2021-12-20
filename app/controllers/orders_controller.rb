@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :please_login, unless: :is_logged_in?
+  before_action :please_login, unless: :user_signed_in?
   before_action :please_buy_more, if: :cart_is_empty?
   before_action :check_valid_params, only: :create
   after_action :empty_cart, only: :create
@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
 
   def please_login
     flash[:warning] = t "cart.please_login"
-    redirect_to login_path
+    redirect_to new_user_session_path
   end
 
   def please_buy_more

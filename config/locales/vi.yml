@@ -124,19 +124,29 @@ vi:
       previous: "&lsaquo;"
       next: "&rsaquo;"
       truncate: "&hellip;"
-  sessions:
-    new:
-      login: "Đăng nhập"
-      email: "Địa chỉ email"
-      password: "Mật khẩu"
-      register_now!: "Đăng ký ngay!"
-      new_user?: "Chưa có tài khoản?"
   logged_in_as: "Đăng nhập thành công với %{name}"
   email_password_invalid: "Địa chỉ email hoặc mật khẩu không đúng"
   logged_out: "Đăng xuất thành công"
   admins_not_allowed: "Xin lỗi bạn, người quản trị không thể truy cập tính năng này"
   product_not_found: "Không tìm thấy sản phẩm"
-
+  form_fields:
+    email: "Địa chỉ email"
+    first_name: "Tên"
+    last_name: "Họ"
+    password: "Mật khẩu"
+    password_confirmation: "Xác nhận mật khẩu"
+  users:
+    registrations:
+      new:
+        sign_up: "Đăng ký"
+        already_signed_up: "Đã có tài khoản?"
+        sign_in_now: "Đăng nhập ngay!"
+    sessions:
+      new:
+        sign_in: "Đăng nhập"
+        new_user: "Chưa có tài khoản?"
+        register_now: "Đăng ký ngay!"
+        remember_me: "Duy trì đăng nhập"
   attributes:
     created_at: "Ngày tạo"
     updated_at: "Ngày cập nhật cuối"

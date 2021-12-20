@@ -1,3 +1,5 @@
+format:
+  regex: !ruby/regexp /\A[\w\-.+]+@[a-z\-\d.]+\.[a-z]+\z/i
 length:
   telephone:
     min: 9
@@ -14,6 +16,7 @@ paginate:
   per_page: 12
 seeder:
   description_paragraphs: 1
+  password: "12345678@"
   count:
     products: 20
     users: 10

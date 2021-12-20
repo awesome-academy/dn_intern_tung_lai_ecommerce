@@ -102,19 +102,29 @@ en:
       phone: "Phone: %{phone_number}"
       email: "Email: %{email}"
       about_us: "About Us"
-  sessions:
-    new:
-      login: "Login"
-      email: "Email address"
-      password: "Password"
-      register_now!: "Register now!"
-      new_user?: "New user?"
   logged_in_as: "Logged in as %{name}"
   email_password_invalid: "Either email or password is invalid"
   logged_out: "Successfully logged out"
   admins_not_allowed: "Sorry but admins are not allowed"
   product_not_found: "Product not found"
-
+  form_fields:
+    email: "Email address"
+    first_name: "First Name"
+    last_name: "Last Name"
+    password: "Password"
+    password_confirmation: "Confirmation"
+  users:
+    registrations:
+      new:
+        sign_up: "Sign up"
+        already_signed_up: "Already have an account?"
+        sign_in_now: "Sign in now!"
+    sessions:
+      new:
+        sign_in: "Sign in"
+        new_user: "New user?"
+        register_now: "Register now!"
+        remember_me: "Remember me"
   products:
     index:
       showing_html: "Showing <span>%{count} / %{total}</span> found products"
