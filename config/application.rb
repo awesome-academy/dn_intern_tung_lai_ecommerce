@@ -18,11 +18,11 @@ module DnInternTungLaiEcommerce
       Rails.env.production? ? 5000 : 3000
     end
 
+    config.autoload_paths << "lib"
     config.load_defaults 6.1
-    config.i18n.available_locales = [:en, :vi]
+    config.i18n.available_locales = %i(en vi)
     config.i18n.default_locale = :vi
     config.time_zone = "Hanoi"
-    # Action mailer settings
     config.action_mailer.raise_delivery_errors = false
     config
       .action_mailer

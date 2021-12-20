@@ -16,6 +16,7 @@ class Seeder
     end
 
     def seed_categories
+      puts "Seeding categories..."
       categories.each do |key, value|
         parent = value && Category.find_by(title: sym_to_name(value))
         Category.create! title: sym_to_name(key),
@@ -51,6 +52,7 @@ class Seeder
     end
 
     def seed_products
+      puts "Seeding products..."
       Settings.seeder.count.products.times do
         name = Faker::Commerce.product_name
         Product.create! name: name,
@@ -85,6 +87,7 @@ class Seeder
     end
 
     def seed_users
+      puts "Seeding users..."
       Settings.seeder.count.users.times do |x|
         User.create! email: "seeder.user#{x}@seeder.com",
           first_name: Faker::Name.first_name,
@@ -97,10 +100,6 @@ class Seeder
           password: Settings.seeder.password,
           password_confirmation: Settings.seeder.password
       end
-    end
-
-    def seed_admins
-      User.create! Settings.seeder.admin.to_hash
     end
 
     def orders_count
@@ -127,6 +126,7 @@ class Seeder
     end
 
     def seed_orders_order_items
+      puts "Seeding orders order_items..."
       User.where(role: :user).find_each do |user|
         orders_count.times do
           order = user.orders.create
@@ -158,6 +158,7 @@ class Seeder
     end
 
     def seed_mailing
+      puts "Seeding mailing..."
       u = seed_mailing_user
       seed_mailing_order u
     end
@@ -166,7 +167,6 @@ class Seeder
       seed_categories
       seed_products
       seed_users
-      seed_admins
       seed_orders_order_items
       seed_mailing
     end

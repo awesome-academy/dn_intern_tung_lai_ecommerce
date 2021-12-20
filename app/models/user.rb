@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :confirmable
   VALID_EMAIL_REGEX = /\A[\w\-.+]+@[a-z\-\d.]+\.[a-z]+\z/i.freeze
   VALID_TELEPHONE_REGEX = /\A0[\d ]+\z/i.freeze
   before_save{email.downcase!}
@@ -19,7 +23,6 @@ class User < ApplicationRecord
                                  maximum: Settings.length.digit_12},
                         allow_blank: true
   validates :address, length: {maximum: Settings.length.digit_255}
-  has_secure_password
 
   enum role: {user: 0, admin: 1}
   enum gender: {female: false, male: true}
