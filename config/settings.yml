@@ -14,6 +14,7 @@ paginate:
   per_page: 12
 seeder:
   description_paragraphs: 1
+  password: "12345678@"
   count:
     products: 20
     users: 10

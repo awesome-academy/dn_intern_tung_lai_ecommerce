@@ -1,10 +1,8 @@
-class SessionsController < ApplicationController
+class SessionsController < Devise::SessionsController
   before_action :use_layout_auth, only: [:new]
   after_action :empty_cart, only: [:destroy]
 
-  def new
-    redirect_to root_url if current_user.present?
-  end
+  def new; end
 
   def create
     @current_user = User.find_by email: params[:user][:email]
@@ -28,8 +26,6 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
-  private
-
   def handle_log_in
     remember_user
     flash[:success] = t("logged_in_as", name: @current_user.first_name)
@@ -39,6 +35,8 @@ class SessionsController < ApplicationController
   def remember_user
     session[:user_id] = @current_user.id
   end
+
+  private
 
   def use_layout_auth
     @use_layout_auth = true
