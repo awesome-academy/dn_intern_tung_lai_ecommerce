@@ -1,20 +1,19 @@
 <%
   key = to_snakecase(heading).to_sym
-  values = params[:filters]&.fetch(key, nil) || {}
 %>
 <h4><%= t "activerecord.attributes.product.#{key}" %></h4>
 <div class="price-range-wrap">
   <div class="price-range"
         data-min="<%= min %>"
         data-max="<%= max %>"
-        data-start="<%= values.fetch :min, min %>"
-        data-end="<%= values.fetch :max, max %>"
+        data-start="<%= params.dig(:filters,"#{key}_gteq".to_sym) || min %>"
+        data-end="<%= params.dig(:filters,"#{key}_lteq".to_sym) || max %>"
         data-step="<%= step %>">
   </div>
   <div class="range-slider">
     <div class="price-input">
-      <%= f.text_field "#{key}[min]", class: "to-int" %>
-      <%= f.text_field "#{key}[max]", class: "to-int" %>
+      <%= f.text_field "#{key}_gteq", class: "to-int" %>
+      <%= f.text_field "#{key}_lteq", class: "to-int" %>
     </div>
   </div>
 </div>

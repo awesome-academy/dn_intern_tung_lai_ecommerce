@@ -11,6 +11,7 @@ class Product < ApplicationRecord
 
   belongs_to :category
   delegate :title, to: :category, prefix: :category
+  ransack_alias :category, :category_id_or_category_parent_id
   scope :featured_products,
         (lambda do |max|
           order(rating: :desc).limit(max)

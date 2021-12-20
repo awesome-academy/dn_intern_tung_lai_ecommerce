@@ -12,7 +12,7 @@
             <% parent_categories.each do |category| %>
               <li class="toggle-down-wrapper">
                 <div>
-                  <h4 class="d-inline-block"><%= link_to category.title, products_path(filters: {categories:{parents:[category.id.to_s]}}) %></h4>
+                  <h4 class="d-inline-block"><%= link_to category.title, products_path(filters: {category_in:[category.id.to_s]}) %></h4>
                   <% if category.children.any? %>
                     <span class="fas fa-angle-down toggle-down-main clickable"></span>
                   <% end %>
@@ -21,7 +21,7 @@
                   <ul class="toggle-down-content border-success">
                     <% category.children.each do |subcategory| %>
                       <li>
-                        <h5><%= link_to subcategory.title, products_path(filters: {categories:{children:[subcategory.id.to_s]}}) %></h5>
+                        <h5><%= link_to subcategory.title, products_path(filters: {category_in:[subcategory.id.to_s]}) %></h5>
                       </li>
                     <% end %>
                   </ul>
@@ -38,7 +38,7 @@
               <div class="hero__search__categories">
                 <%= t "labels.category.all" %>
               </div>
-              <%= f.text_field :name, placeholder: t(".what_do_you_need?") %>
+              <%= f.text_field :name_cont, placeholder: t(".what_do_you_need?") %>
               <%= f.button t(".search_btn_txt"), name: nil, class: "site-btn"%>
             <% end %>
           </div>
