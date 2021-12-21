@@ -14,7 +14,8 @@
     </div>
     <%= render "layouts/flash" %>
     <%= render "layouts/header" %>
-    <% if @use_layout_auth %>
+    <% use_layout_auth = %i(registrations sessions) %>
+    <% if use_layout_auth.include?(controller_name.to_sym) %>
       <div class="container my-3">
         <%= yield %>
       </div>

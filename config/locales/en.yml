@@ -102,13 +102,6 @@ en:
       phone: "Phone: %{phone_number}"
       email: "Email: %{email}"
       about_us: "About Us"
-  sessions:
-    new:
-      login: "Login"
-      email: "Email address"
-      password: "Password"
-      register_now!: "Register now!"
-      new_user?: "New user?"
   logged_in_as: "Logged in as %{name}"
   email_password_invalid: "Either email or password is invalid"
   logged_out: "Successfully logged out"
@@ -120,12 +113,18 @@ en:
     last_name: "Last Name"
     password: "Password"
     password_confirmation: "Confirmation"
-    btn_sign_in: "Sign in now!"
   users:
     registrations:
       new:
-        already_signed_up?: "Already have an account?"
-        btn_sign_up: "Sign up"
+        sign_up: "Sign up"
+        already_signed_up: "Already have an account?"
+        sign_in_now: "Sign in now!"
+    sessions:
+      new:
+        sign_in: "Sign in"
+        new_user: "New user?"
+        register_now: "Register now!"
+        remember_me: "Remember me"
   products:
     index:
       showing_html: "Showing <span>%{count} / %{total}</span> found products"

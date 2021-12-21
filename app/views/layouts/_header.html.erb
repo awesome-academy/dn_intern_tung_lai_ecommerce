@@ -15,12 +15,12 @@
     </div>
   </div>
   <div class="header__top__right__auth">
-    <% if current_user.present? %>
+    <% if user_signed_in? %>
       <%= link_to "#" do %>
-        <i class="fa fa-user"></i><%= current_user.first_name %>, <%= link_to t(".logout"), logout_path %>
+        <i class="fa fa-user"></i><%= current_user.first_name %>, <%= link_to t(".logout"), sign_out_path, method: :delete %>
       <% end %>
     <% else %>
-      <%= link_to "#" do %>
+      <%= link_to sign_in_path do %>
         <i class="fa fa-user"></i><%= t ".login" %>
       <% end %>
     <% end %>
@@ -68,12 +68,12 @@
               <%= render "shared/list_languages" %>
             </div>
             <div class="header__top__right__auth">
-              <% if current_user.present? %>
+              <% if user_signed_in? %>
                 <%= link_to "#" do %>
-                  <i class="fa fa-user"></i><%= current_user.first_name %>, <%= link_to t(".logout"), logout_path %>
+                  <i class="fa fa-user"></i><%= current_user.first_name %>, <%= link_to t(".logout"), sign_out_path, method: :delete %>
                 <% end %>
               <% else %>
-                <%= link_to "#" do %>
+                <%= link_to sign_in_path do %>
                   <i class="fa fa-user"></i><%= t ".login" %>
                 <% end %>
               <% end %>

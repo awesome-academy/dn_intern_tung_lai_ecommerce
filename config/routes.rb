@@ -9,15 +9,16 @@ Rails.application.routes.draw do
     end
     root "static_pages#index"
     get "/home", to: "static_pages#index"
-    get "/login", to: "sessions#new"
-    post "/login", to: "sessions#create"
-    get "/logout", to: "sessions#destroy"
 
-    devise_for :users, controllers: { registrations: "users/registrations" }
     devise_scope :user do
       get "sign_up", to: "users/registrations#new"
       post "sign_up", to: "users/registrations#create"
+      get "sign_in", to: "users/sessions#new"
+      post "sign_in", to: "users/sessions#create"
+      delete "sign_out", to: "users/sessions#destroy"
     end
+    devise_for :users, controllers: { registrations: "users/registrations",
+                                      sessions: "users/sessions" }
 
     resources :products, only: %i(index show)
     resources :carts, except: %i(new show edit)

@@ -1,3 +1,5 @@
+format:
+  regex: !ruby/regexp /\A[\w\-.+]+@[a-z\-\d.]+\.[a-z]+\z/i
 length:
   telephone:
     min: 9

@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :please_login, unless: :is_logged_in?
+  before_action :please_login, unless: :user_signed_in?
   before_action :please_buy_more, if: :cart_is_empty?
   before_action :check_valid_params, only: :create
   after_action :empty_cart, only: :create

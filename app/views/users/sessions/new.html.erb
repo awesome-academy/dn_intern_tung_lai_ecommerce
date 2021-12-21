@@ -1,0 +1,22 @@
+<div class="section-title">
+  <h2><%= t ".sign_in" %></h2>
+</div>
+<div class="container">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+    <div class="form-group">
+      <%= f.label :email, t("form_fields.email") %>
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password, t("form_fields.password") %>
+      <%= f.password_field :password, class: "form-control" %>
+    </div>
+    <%= f.label :remember_me, class: "checkbox inline" do %>
+      <%= f.check_box :remember_me %>
+      <span><%= t(".remember_me") %></span>
+    <% end %>
+    <div class="form-group d-flex flex-column"><%= f.submit t(".sign_in"), class: "btn btn-primary" %></div>
+  <% end %>
+  <p><%= t ".new_user" %> <%= link_to t(".register_now"), sign_up_path %></p>
+</div>
