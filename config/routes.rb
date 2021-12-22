@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+    mount API::Root, at: "/"
+    mount GrapeSwaggerRails::Engine, at: "/api-docs"
     namespace :admin do
       root "static_pages#index"
       get "login", to: "sessions#new"
