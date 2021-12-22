@@ -11,7 +11,7 @@ class Admin::SessionsController < Admin::BaseController
     if @current_user&.user?
       flash[:warning] = t("admin.users_not_allowed")
       redirect_to action: :new
-    elsif @current_user&.authenticate(params[:login][:password])
+    elsif @current_user&.valid_password?(params[:login][:password])
       handle_log_in
     else
       flash[:danger] = t("admin.log_in_failed")

@@ -17,10 +17,10 @@
   <div class="header__top__right__auth">
     <% if current_user.present? %>
       <%= link_to "#" do %>
-        <i class="fa fa-user"></i><%= current_user.first_name %>, <%= link_to t(".logout"), logout_path %>
+        <i class="fa fa-user"></i><%= current_user.first_name %>, <%= link_to t(".logout"), destroy_user_session_path %>
       <% end %>
     <% else %>
-      <%= link_to login_path do %>
+      <%= link_to new_user_session_path do %>
         <i class="fa fa-user"></i><%= t ".login" %>
       <% end %>
     <% end %>
@@ -70,10 +70,10 @@
             <div class="header__top__right__auth">
               <% if current_user.present? %>
                 <%= link_to "#" do %>
-                  <i class="fa fa-user"></i><%= current_user.first_name %>, <%= link_to t(".logout"), logout_path %>
+                  <i class="fa fa-user"></i><%= current_user.first_name %>, <%= link_to t(".logout"), destroy_user_session_path %>
                 <% end %>
               <% else %>
-                <%= link_to login_path do %>
+                <%= link_to new_user_session_path do %>
                   <i class="fa fa-user"></i><%= t ".login" %>
                 <% end %>
               <% end %>

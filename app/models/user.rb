@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  devise :database_authenticatable
   VALID_EMAIL_REGEX = /\A[\w\-.+]+@[a-z\-\d.]+\.[a-z]+\z/i.freeze
   VALID_TELEPHONE_REGEX = /\A0[\d ]+\z/i.freeze
   before_save{email.downcase!}
@@ -19,7 +20,7 @@ class User < ApplicationRecord
                                  maximum: Settings.length.digit_12},
                         allow_blank: true
   validates :address, length: {maximum: Settings.length.digit_255}
-  has_secure_password
+  validates :current_password, confirmation: true, allow_blank: true
 
   enum role: {user: 0, admin: 1}
   enum gender: {female: false, male: true}

@@ -1,7 +1,8 @@
 require "rails_helper"
-require_relative "shared_helpers"
 
 RSpec.describe SessionsController, type: :controller do
+  include Devise::Test::ControllerHelpers
+  before{@request.env["devise.mapping"] = Devise.mappings[:user]}
   let(:user){create(:user)}
   def password_login user, options = {}
     post :create, params: {user: {email: options.fetch(:email, user.email),
@@ -33,8 +34,8 @@ RSpec.describe SessionsController, type: :controller do
         password_login user
       end
 
-      it{should set_session[:user_id].to(user.id)}
-      it{should set_flash[:success].to(I18n.t("logged_in_as", name: user.first_name))}
+      it{should set_session["warden.user.user.key"]}
+      it{should set_flash[:notice].to(I18n.t("devise.sessions.signed_in"))}
       it{should redirect_to(root_url)}
     end
 
@@ -44,8 +45,8 @@ RSpec.describe SessionsController, type: :controller do
           password_login user, password: user.password + "foobar"
         end
 
-        it{should set_flash[:danger].to(I18n.t("email_password_invalid"))}
-        it{should redirect_to(action: :new)}
+        it{expect(flash[:alert]).to eq(I18n.t("devise.failure.invalid", authentication_keys: I18n.t("activerecord.attributes.user.email")))}
+        it{expect(response).to render_template("new")}
       end
 
       context "when logging in as admin" do
@@ -54,7 +55,7 @@ RSpec.describe SessionsController, type: :controller do
           password_login admin
         end
         it{should set_flash[:warning].to(I18n.t("admins_not_allowed"))}
-        it{should redirect_to(action: :new)}
+        it{expect(response).to render_template("new")}
       end
     end
   end
@@ -68,8 +69,8 @@ RSpec.describe SessionsController, type: :controller do
     it{should redirect_to(root_url)}
 
     context "when logged in" do
-      it{should_not set_session[:user_id]}
-      it{should set_flash[:success].to(I18n.t("logged_out"))}
+      it{should_not set_session["warden.user.user.key"]}
+      it{should set_flash[:notice].to(I18n.t("devise.sessions.signed_out"))}
     end
   end
 end

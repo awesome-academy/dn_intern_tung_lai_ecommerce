@@ -7,13 +7,12 @@ Rails.application.routes.draw do
       get "logout", to: "sessions#destroy"
       resources :orders, except: %i(create destroy)
     end
+    devise_for :users, controllers: {sessions: "sessions"},
+                       path: "",
+                       path_names: {sign_in: :login, sign_out: :logout,
+                                    sign_up: :register}
     root "static_pages#index"
     get "/home", to: "static_pages#index"
-
-    get "/login", to: "sessions#new"
-    post "/login", to: "sessions#create"
-    get "/logout", to: "sessions#destroy"
-
     resources :products, only: %i(index show)
     resources :carts, except: %i(new show edit)
     resources :orders, only: %i(new create)

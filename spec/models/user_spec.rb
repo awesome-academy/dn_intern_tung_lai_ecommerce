@@ -70,7 +70,6 @@ RSpec.describe User, type: :model do
       end
     end
     describe "password" do
-      it{should have_secure_password}
       it do
         should validate_length_of(:password)
           .is_at_least(Settings.length.digit_8)

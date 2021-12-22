@@ -1,4 +1,5 @@
 <div class="sticky-top">
+  <% use_custom_flash! %>
   <% flash.each do |message_type, message| %>
     <div class="alert alert-<%= message_type %>">
       <div class="container">

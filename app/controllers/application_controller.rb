@@ -5,5 +5,6 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   before_action :set_locale, :init_cart
+  helper_method :current_user
   protect_from_forgery with: :exception
 end

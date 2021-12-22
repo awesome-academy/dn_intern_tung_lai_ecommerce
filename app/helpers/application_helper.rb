@@ -27,4 +27,8 @@ module ApplicationHelper
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
+
+  def use_layout_auth
+    @use_layout_auth = true
+  end
 end

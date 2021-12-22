@@ -1,9 +1,13 @@
 module SessionsHelper
-  def current_user
-    @current_user ||= User.find_by id: session[:user_id]
-  end
+  DEVISE_MESSAGE_TYPES = [:notice, :alert].freeze
+  DEVISE_MESSAGE_TYPES_MAPPING = {notice: :info, alert: :danger}.freeze
 
-  def is_logged_in?
-    current_user.present?
+  def use_custom_flash!
+    DEVISE_MESSAGE_TYPES.each do |key|
+      next unless flash.key? key.to_s
+
+      flash[DEVISE_MESSAGE_TYPES_MAPPING[key]] = flash[key]
+      flash.delete key
+    end
   end
 end
