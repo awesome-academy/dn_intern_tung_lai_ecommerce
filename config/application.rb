@@ -37,5 +37,6 @@ module DnInternTungLaiEcommerce
       authentication: "plain",
       enable_starttls_auto: true
     }
+    config.autoload_paths << "lib"
   end
 end

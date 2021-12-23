@@ -50,3 +50,6 @@ digit:
   zero: 0
 mailer:
   from: "noreply@tlshop.com"
+host: "http://localhost:3000"
+swagger_doc_path: "/api/v1/swagger_doc"
+token_secret: "bloomingseed"

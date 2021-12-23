@@ -36,6 +36,7 @@ group :development, :test do
 
   # db: mysql2
   gem "mysql2"
+  gem "grape_on_rails_routes", "~> 0.3.2"
 end
 
 group :development do
@@ -61,3 +62,14 @@ end
 gem "figaro", "~> 1.2"
 
 gem "rails-controller-testing", "~> 1.0"
+
+gem "grape", "~> 1.6"
+
+gem "grape-swagger", "~> 1.4"
+gem "grape-swagger-rails", "~> 0.3.1"
+
+gem "rack-cors", "~> 1.1"
+
+gem "jwt", "~> 2.3"
+
+gem "grape-route-helpers", "~> 2.1"
