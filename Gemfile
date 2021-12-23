@@ -3,6 +3,7 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 
 ruby "2.7.0"
 
+gem "active_model_serializers", "~> 0.10.0"
 gem "bcrypt"
 gem "bootsnap", ">= 1.4.4", require: false
 gem "config"
@@ -11,8 +12,10 @@ gem "devise-i18n"
 gem "faker"
 gem "figaro"
 gem "jbuilder", "~> 2.7"
+gem "jwt"
 gem "kaminari"
 gem "puma", "~> 5.0"
+gem "rack-cors"
 gem "rails", "~> 6.1.4", ">= 6.1.4.1"
 gem "rails-controller-testing"
 gem "rails-i18n"

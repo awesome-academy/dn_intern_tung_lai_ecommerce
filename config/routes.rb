@@ -7,11 +7,18 @@ Rails.application.routes.draw do
       get "logout", to: "sessions#destroy"
       resources :orders, except: %i(create destroy)
     end
+
+    namespace :api do
+      namespace :v1 do
+        post "auth/login", to: "authentication#login"
+      end
+    end
+
     root "static_pages#index"
     get "/home", to: "static_pages#index"
-    get "/login", to: "sessions#new"
-    post "/login", to: "sessions#create"
-    get "/logout", to: "sessions#destroy"
+    # get "/login", to: "sessions#new"
+    # post "/login", to: "sessions#create"
+    # get "/logout", to: "sessions#destroy"
 
     devise_for :users, controllers: { registrations: "users/registrations" }
     devise_scope :user do
